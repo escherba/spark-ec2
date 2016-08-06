@@ -36,3 +36,6 @@ nosetests.xml
 
 # JetBrains products
 .idea/
+
+# Vim
+*.sw[op]

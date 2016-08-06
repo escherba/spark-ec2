@@ -27,6 +27,12 @@ sudo yum install -y pssh
 # Ganglia
 sudo yum install -y ganglia ganglia-web ganglia-gmond ganglia-gmetad
 
+# HTTPD
+sudo yum remove httpd httpd24_tools
+sudo yum install httpd24 httpd_tools
+sudo yum remove php-xml.x86_64 php-common.x86_64 php-cli.x86_64 php-process.x86_64
+sudo yum install php56.x86_64
+
 # Root ssh config
 sudo sed -i 's/PermitRootLogin.*/PermitRootLogin without-password/g' \
   /etc/ssh/sshd_config
