@@ -1118,6 +1118,7 @@ def deploy_files(conn, root_dir, opts, master_nodes, slave_nodes, modules):
         "%s/" % tmp_dir,
         "%s@%s:/" % (opts.user, active_master)
     ]
+    print(" ".join(command))
     subprocess.check_call(command)
     # Remove the temp directory we created above
     shutil.rmtree(tmp_dir)
@@ -1137,6 +1138,7 @@ def deploy_user_files(root_dir, opts, master_nodes):
         "%s" % root_dir,
         "%s@%s:/" % (opts.user, active_master)
     ]
+    print(" ".join(command))
     subprocess.check_call(command)
 
 

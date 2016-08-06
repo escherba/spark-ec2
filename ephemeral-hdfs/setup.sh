@@ -47,6 +47,8 @@ case "$HADOOP_MAJOR_VERSION" in
 esac
 
 # set up /tmp/hive
-$EPHEMERAL_HDFS/bin/hadoop fs -chmod 777 /tmp/hive
+LOCAL_HIVE_DIR=/tmp/hive
+$EPHEMERAL_HDFS/bin/hadoop fs -mkdir -p $LOCAL_HIVE_DIR
+$EPHEMERAL_HDFS/bin/hadoop fs -chmod -R 777 $LOCAL_HIVE_DIR
 
 popd > /dev/null
