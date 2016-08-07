@@ -47,4 +47,6 @@ case "$HADOOP_MAJOR_VERSION" in
 esac
 /root/spark-ec2/copy-dir /root/ephemeral-hdfs
 
+echo "export HADOOP_CONF_DIR=/root/ephemeral-hdfs/conf" >> ~/.bash_profile
+
 popd > /dev/null

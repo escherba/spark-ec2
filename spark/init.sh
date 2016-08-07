@@ -144,4 +144,7 @@ else
   mv `ls -d spark-* | grep -v ec2` spark
 fi
 
+echo "export SPARK_HOME=`pwd`/spark" >> ~/.bash_profile
+echo "export SPARK_LOCAL_IP=0.0.0.0" >> ~/.bash_profile
+
 popd > /dev/null
