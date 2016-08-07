@@ -1,15 +1,15 @@
 #!/bin/bash
 
 # Install Maven (for Hadoop)
-cd /tmp
-wget "http://archive.apache.org/dist/maven/maven-3/3.2.3/binaries/apache-maven-3.2.3-bin.tar.gz"
-tar xzf apache-maven-3.2.3-bin.tar.gz
-mv apache-maven-3.2.3 /opt/
+# cd /tmp
+# wget "http://archive.apache.org/dist/maven/maven-3/3.2.3/binaries/apache-maven-3.2.3-bin.tar.gz"
+# tar xzf apache-maven-3.2.3-bin.tar.gz
+# mv apache-maven-3.2.3 /opt/
 
 # Edit bash profile
 echo "export PS1=\"\\u@\\h \\W]\\$ \"" >> ~/.bash_profile
 echo "export JAVA_HOME=/usr/lib/jvm/java-1.7.0" >> ~/.bash_profile
-echo "export M2_HOME=/opt/apache-maven-3.2.3" >> ~/.bash_profile
+#echo "export M2_HOME=/opt/apache-maven-3.2.3" >> ~/.bash_profile
 echo "export PATH=\$PATH:\$M2_HOME/bin" >> ~/.bash_profile
 
 source ~/.bash_profile
