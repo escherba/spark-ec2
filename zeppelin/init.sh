@@ -32,12 +32,12 @@ mvn clean package \
     -Pspark-${SPARK_VERSION%.*} -Phadoop-${HADOOP_VERSION%.*} \
     -Dspark.version=$SPARK_VERSION -Dhadoop.version=$HADOOP_VERSION \
     -Ppyspark -Pyarn -Pdist,native -DskipTests -Dtar -Drat.skip=true
-cp conf/zeppelin-env.sh.template conf/zeppelin-env.sh
 
+cp conf/zeppelin-env.sh.template conf/zeppelin-env.sh
 echo "export JAVA_HOME=/usr/lib/jvm/java-1.7.0" >> conf/zeppelin-env.sh
 echo "export HADOOP_CONF_DIR=/root/ephemeral-hdfs/conf" >> conf/zeppelin-env.sh
 
 
 cd /tmp
-rm -r /root/zeppelin
+rm -rf /root/zeppelin
 sudo mv zeppelin-0.6.0 /root/zeppelin
