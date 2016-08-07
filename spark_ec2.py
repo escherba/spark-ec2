@@ -525,6 +525,8 @@ def launch_cluster(conn, opts, cluster_name):
         master_group.authorize('tcp', 50070, 50070, authorized_address)
         master_group.authorize('tcp', 60070, 60070, authorized_address)
         master_group.authorize('tcp', 4040, 4045, authorized_address)
+        # We put Zeppelin on 8891
+        master_group.authorize('tcp', 8891, 8891, authorized_address)
         # Rstudio (GUI for R) needs port 8787 for web access
         master_group.authorize('tcp', 8787, 8787, authorized_address)
         # HDFS NFS gateway requires 111,2049,4242 for tcp & udp
@@ -811,7 +813,8 @@ def setup_cluster(conn, master_nodes, slave_nodes, opts, deploy_ssh_key):
             ssh_write(slave_address, opts, ['tar', 'x'], dot_ssh_tar)
 
     modules = ['spark', 'ephemeral-hdfs', 'persistent-hdfs',
-               'mapreduce', 'spark-standalone', 'tachyon', 'rstudio']
+               'mapreduce', 'spark-standalone', 'tachyon', 'rstudio',
+               'zeppelin']
 
     if opts.hadoop_major_version == "1":
         modules = list(filter(lambda x: x != "mapreduce", modules))
